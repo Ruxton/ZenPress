@@ -468,6 +468,11 @@ require( get_template_directory() . '/includes/compat.php' );
  */
 require( get_template_directory() . '/includes/indieweb-post-kinds.php' );
 
+/**
+ * Adds Indieweb Syndcation Links
+ * if github.com/dshanske/syndication-links is activated
+ */
+require( get_template_directory() . '/includes/syndication_links.php' );
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and ZenPress.
