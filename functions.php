@@ -475,5 +475,12 @@ require( get_template_directory() . '/includes/indieweb-post-kinds.php' );
 require( get_template_directory() . '/includes/syndication_links.php' );
 
 /**
+ * Adds Wordpress Micropub
+ * if github.com/snarfed/wordpress-micropub is activated
+ */
+require( get_template_directory() . '/includes/micropub.php' );
+
+
+/**
  * This theme was built with PHP, Semantic HTML, CSS, love, and ZenPress.
  */
