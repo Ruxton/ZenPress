@@ -9,6 +9,6 @@
  */
 
 
-if(has_filter('micropub_post_content',array( Micropub_Plugin, 'generate_post_content' )) {
-	remove_filter('micropub_post_content', array( Micropub_Plugin, 'generate_post_content' ));
+if(has_filter('micropub_post_content',array( Micropub_Plugin, 'generate_post_content' ))) {
+	remove_filter('micropub_post_content', array( Micropub_Plugin, 'generate_post_content' ),1);
 }
