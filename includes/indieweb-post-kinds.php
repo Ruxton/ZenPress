@@ -20,11 +20,11 @@ function zenpress_post_kinds_init() {
 		add_filter('kind_icon_display','zenpress_kind_icon_display',10,2);
 	}
 
-	if(has_filter('the_content',array( 'Kind_View', 'content_response' )) {
+	if(has_filter('the_content',array( 'Kind_View', 'content_response' ))) {
 		remove_filter( 'the_content', array( 'Kind_View', 'content_response' ), 20 );
 	}
 
-	if(has_filter('the_content',array( 'Kind_View', 'excerpt_response' )) {
+	if(has_filter('the_content',array( 'Kind_View', 'excerpt_response' ))) {
 		remove_filter( 'the_excerpt', array( 'Kind_View', 'excerpt_response' ), 20 );
 	}
 }
