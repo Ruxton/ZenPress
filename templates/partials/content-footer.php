@@ -7,7 +7,7 @@
 				<span itemprop="name"><?php echo get_the_author(); ?></span>
 			</a>
 			<div class="note e-note" itemprop="description"><?php echo get_the_author_meta( 'description' ); ?></div>
-			<a class="subscribe" href="<?php echo get_feed_link(); ?>"><i class="openwebicons-feed"></i> <?php _e( 'Subscribe to author feed', 'zenpress' ); ?></a>
+			<a class="subscribe" href="<?php echo get_author_feed_link( get_the_author_meta( 'ID' ) ); ?>"><i class="openwebicons-feed"></i> <?php _e( 'Subscribe to author feed', 'zenpress' ); ?></a>
 		</address>
 
 		<?php
@@ -32,11 +32,12 @@
 		</div>
 		<?php endif; // End if $tags_list ?>
 
+		<?php dynamic_sidebar( 'entry-meta' ); ?>
+		<?php do_action( 'zenpress-entry-footer' ); ?>
+
 		<?php if ( comments_open() || ( '0' != get_comments_number() && ! comments_open() ) ) : ?>
 		<div class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'zenpress' ), __( '1 Comment', 'zenpress' ), __( '% Comments', 'zenpress' ) ); ?></div>
 		<?php endif; ?>
-
-		<?php do_action( 'zenpress-entry-footer' ); ?>
 	</footer><!-- #entry-meta -->
 <?php else : ?>
 	<footer class="entry-footer entry-meta">

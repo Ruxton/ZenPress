@@ -166,41 +166,6 @@ function zenpress_page_menu_args( $args ) {
 }
 add_filter( 'wp_page_menu_args', 'zenpress_page_menu_args' );
 
-/**
- * Register widgetized area and update sidebar with default widgets
- */
-function zenpress_widgets_init() {
-	register_sidebar( array(
-		'name' => __( 'Sidebar 1', 'zenpress' ),
-		'id' => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Sidebar 2', 'zenpress' ),
-		'id' => 'sidebar-2',
-		'description' => __( 'An optional second sidebar area', 'zenpress' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Sidebar 3', 'zenpress' ),
-		'id' => 'sidebar-3',
-		'description' => __( 'An optional second sidebar area', 'zenpress' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'init', 'zenpress_widgets_init' );
-
 if ( ! function_exists( 'zenpress_enqueue_scripts' ) ) :
 	/**
 	 * Enqueue theme scripts
@@ -395,25 +360,6 @@ if ( ! function_exists( 'zenpress_posted_on' ) ) :
 endif;
 
 /**
- * replace post-title with id when empty
- *
- * @since ZenPress 1.4.6
- *
- * @param string $title the post-title
- * @param int $id the post-id
- * @return string the filtered post-title
- */
-function zenpress_the_title( $title, $id ) {
-	// if title is empty, return the id
-	if ( empty( $title ) ) {
-		return "#$id";
-	}
-
-	return $title;
-}
-add_filter( 'the_title', 'zenpress_the_title', 10, 2 );
-
-/**
  * Filter in a link to a content ID attribute for the next/previous image links on
  * image attachment pages
  *
@@ -462,6 +408,11 @@ function zenpress_get_post_id() {
 }
 
 /**
+ * Widget handling
+ */
+require( get_template_directory() . '/includes/widgets.php' );
+
+/**
  * Adds the featured image functionality
  */
 require( get_template_directory() . '/includes/featured-image.php' );
@@ -475,6 +426,10 @@ require( get_template_directory() . '/includes/semantics.php' );
  * Adds back compat handling for older WP versions
  */
 require( get_template_directory() . '/includes/compat.php' );
+
+/**
+ * Compatibility with other plugins, mostly IndieWeb related
+ */
 
 if ( defined( 'SYNDICATION_LINKS_VERSION' ) ) {
 	/**

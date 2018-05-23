@@ -27,6 +27,11 @@
 			list-style-type: none;
 			line-height: 1.5;
 		}
+
+		ul, ol {
+			margin-left: 2em;
+			padding: inherit;
+		}
 	}
 
 	input {
