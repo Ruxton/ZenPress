@@ -14,7 +14,8 @@
 }
 
 #sidebar {
-	width: 100%;
+	width: $wide-width + 400;
+	max-width: 100%;
 
 	aside {
 		margin: 50px 50px;
@@ -62,7 +63,8 @@
 	> object,
 	> embed,
 	> iframe,
-	> figure {
+	> figure,
+	.wp-block-pullquote {
 		max-width: $wide-width;
 		box-sizing: border-box;
 	}
@@ -144,12 +146,12 @@ p {
 	figcaption {
 		display: block;
 		height: 68px;
-		right: -$margin;
+		right: -($margin + 20);
 		margin-top: 0px;
 		position: absolute;
 		text-align: left;
 		top: 0px;
-		width: $margin - 20;
+		width: $margin;
 		word-break: break-word;
 		word-wrap: break-word;
 
