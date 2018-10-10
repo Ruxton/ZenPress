@@ -487,17 +487,15 @@ if ( defined( 'SYNDICATION_LINKS_VERSION' ) ) {
 require( get_template_directory() . '/includes/indieweb-post-kinds.php' );
 
 /**
- * Adds Indieweb Syndcation Links
- * if github.com/dshanske/syndication-links is activated
- */
-require( get_template_directory() . '/includes/syndication_links.php' );
-
-/**
  * Adds Wordpress Micropub
  * if github.com/snarfed/wordpress-micropub is activated
  */
 require( get_template_directory() . '/includes/micropub.php' );
 
+/**
+ * Make prettier videos
+ */
+require( get_template_directory() . '/includes/video.php' );
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and ZenPress.
